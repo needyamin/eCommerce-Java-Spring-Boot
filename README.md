@@ -2,6 +2,9 @@
 
 A full-featured e-commerce web application built with Spring Boot, following MVC (Model-View-Controller) architecture pattern.
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/needyamin/eCommerce-Java-Spring-Boot)
+[![License](https://img.shields.io/badge/License-GPL--3.0-green)](LICENSE)
+
 ## 🚀 Features
 
 - **Product Management**: Browse products, view details, and manage inventory
@@ -35,8 +38,8 @@ Before running this application, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd eCommerce
+git clone https://github.com/needyamin/eCommerce-Java-Spring-Boot.git
+cd eCommerce-Java-Spring-Boot
 ```
 
 ### 2. Database Setup
@@ -232,7 +235,9 @@ server.port=8081
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [GPL-3.0 License](LICENSE).
+
+See the [LICENSE](LICENSE) file for more details.
 
 ## 👥 Contributing
 
@@ -240,7 +245,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-For questions or support, please open an issue in the repository.
+For questions or support, please open an issue in the [GitHub repository](https://github.com/needyamin/eCommerce-Java-Spring-Boot/issues).
+
+## 🔗 Repository
+
+- **GitHub**: [https://github.com/needyamin/eCommerce-Java-Spring-Boot](https://github.com/needyamin/eCommerce-Java-Spring-Boot)
+- **Issues**: [Report a Bug](https://github.com/needyamin/eCommerce-Java-Spring-Boot/issues)
+- **Pull Requests**: [Contribute](https://github.com/needyamin/eCommerce-Java-Spring-Boot/pulls)
 
 ---
 
