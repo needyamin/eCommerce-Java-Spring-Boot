@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders - E-Commerce Store</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
+        .header { background-color: #333; color: white; padding: 1rem; }
+        .header h1 { display: inline-block; }
+        .nav { display: inline-block; float: right; margin-top: 0.5rem; }
+        .nav a { color: white; text-decoration: none; margin-left: 1rem; padding: 0.5rem; }
+        .nav a:hover { background-color: #555; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .orders-container { background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; font-weight: bold; }
+        .status { padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.9rem; }
+        .status-pending { background-color: #ffc107; color: #000; }
+        .status-processing { background-color: #17a2b8; color: #fff; }
+        .status-shipped { background-color: #007bff; color: #fff; }
+        .status-delivered { background-color: #28a745; color: #fff; }
+        .status-cancelled { background-color: #dc3545; color: #fff; }
+        .footer { background-color: #333; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛒 E-Commerce Store</h1>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <h2 style="margin-bottom: 2rem;">All Orders</h2>
+        <div class="orders-container">
+            <table th:if="${orders != null and !orders.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Email</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order : ${orders}">
+                        <td th:text="'#' + ${order.id}">#1</td>
+                        <td th:text="${order.customerName}">Customer</td>
+                        <td th:text="${order.customerEmail}">Email</td>
+                        <td th:text="'$' + ${order.total}">$0.00</td>
+                        <td th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')}">Date</td>
+                        <td>
+                            <span th:class="'status status-' + ${#strings.toLowerCase(order.status.toString())}" th:text="${order.status}">Status</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:if="${orders == null or orders.isEmpty()}" style="text-align: center; color: #666; padding: 2rem;">No orders found.</p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+    </div>
+</body>
+</html>
+
